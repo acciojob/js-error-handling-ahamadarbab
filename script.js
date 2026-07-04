@@ -48,3 +48,16 @@ function evalString(expression) {
 		throw err;
 	}
 }
+
+const input = document.getElementById("input1");
+const button = document.getElementById("btn");
+
+button.addEventListener("click", () => {
+	try {
+		evalString(input.value);
+		alert("passed");
+	} catch (e) {
+		alert("failed");
+		throw e;
+	}
+});
