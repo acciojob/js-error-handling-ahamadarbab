@@ -1,7 +1,7 @@
 //your code here
 class OutOfRangeError extends Error {
 	constructor(arg) {
-		super(`Expression should only consist of integers and +-/* characters and not ${arg}`);
+		super(`Expression should only consist of integers and +-/* characters and not '${arg}'`);
 		this.name = "OutOfRangeError";
 	}
 }
@@ -38,7 +38,7 @@ function evalString(expression) {
 		}
 
 		// Invalid operator combinations
-		if(/[+\-/*]{2,}/.test(expression.replace(/\s+/g, ""))) {
+		if(/\+\+|--|\*\*|\/\/|\+\*|\+\/|\*\+|\*\/|\/\+|\/\*/.test(expression.replace(/\s+/g, ""))) {
 			throw new InvalidExprError();
 		}
 
